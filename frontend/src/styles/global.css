@@ -1,0 +1,9 @@
+/* SHARED / INTEGRATION FILE — do not edit without coordination. */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+}

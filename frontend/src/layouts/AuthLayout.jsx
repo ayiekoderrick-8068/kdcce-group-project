@@ -1,5 +1,14 @@
-import { Outlet } from 'react-router-dom'
+import { Link, Outlet } from 'react-router-dom'
 
 export default function AuthLayout() {
-  return <Outlet />
+  return (
+    <div className="auth-layout">
+      <div className="auth-card">
+        <Link to="/" className="auth-brand">
+          KDCEE
+        </Link>
+        <Outlet />
+      </div>
+    </div>
+  )
 }

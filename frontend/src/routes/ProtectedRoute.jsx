@@ -1,6 +1,21 @@
-import { Navigate, Outlet } from 'react-router-dom'
+import { Navigate, Outlet, useLocation } from 'react-router-dom'
+import { useAuth } from '../hooks/useAuth'
 
-export default function ProtectedRoute() {
-  const isAuthenticated = true
-  return isAuthenticated ? <Outlet /> : <Navigate to="/login" replace />
+export default function ProtectedRoute({ allowedRoles }) {
+  const { user, loading } = useAuth()
+  const location = useLocation()
+
+  if (loading) {
+    return <div className="page-loading">Loading…</div>
+  }
+
+  if (!user) {
+    return <Navigate to="/login" replace state={{ from: location }} />
+  }
+
+  if (allowedRoles && !allowedRoles.includes(user.role)) {
+    return <Navigate to="/" replace />
+  }
+
+  return <Outlet />
 }

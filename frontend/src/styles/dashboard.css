@@ -1,1 +1,191 @@
-/* TODO: styles. */
+:root {
+  --color-primary: #1f6f54;
+  --color-primary-dark: #14503c;
+  --color-secondary: #f2a71b;
+  --color-danger: #c0392b;
+  --color-bg: #f7f7f4;
+  --color-surface: #ffffff;
+  --color-text: #23291f;
+  --color-muted: #6b7166;
+  --color-border: #e1e3dc;
+  --radius: 8px;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* ---------- dashboard shell ---------- */
+
+.dashboard-layout {
+  display: flex;
+  min-height: 100%;
+}
+
+.dashboard-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.dashboard-body {
+  padding: 1.5rem;
+  flex: 1;
+}
+
+.sidebar {
+  width: 220px;
+  flex-shrink: 0;
+  background: var(--color-primary-dark);
+  color: #fff;
+  padding: 1.5rem 1rem;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.sidebar a {
+  color: #e7ede9;
+  text-decoration: none;
+  padding: 0.55rem 0.75rem;
+  border-radius: var(--radius);
+}
+
+.sidebar a.active,
+.sidebar a:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.dashboard-header-user {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.9rem;
+}
+
+/* ---------- stat cards ---------- */
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.stat-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  text-align: center;
+}
+
+.stat-card-value {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--color-primary-dark);
+  margin: 0;
+}
+
+.stat-card-label {
+  margin: 0.25rem 0 0;
+  color: var(--color-muted);
+  font-size: 0.85rem;
+}
+
+/* ---------- data tables (used by admin/staff screens and "My Bookings") ---------- */
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.data-table th,
+.data-table td {
+  text-align: left;
+  padding: 0.65rem 0.85rem;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 0.9rem;
+}
+
+.data-table th {
+  background: #f0f1ec;
+  font-weight: 700;
+}
+
+.user-form {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* ---------- contact inbox ---------- */
+
+.message-item {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.message-item-unread {
+  border-left: 4px solid var(--color-secondary);
+}
+
+.message-item-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  margin-bottom: 0.35rem;
+}
+
+/* ---------- settings ---------- */
+
+.settings-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  max-width: 480px;
+}
+
+.muted {
+  color: var(--color-muted);
+  font-size: 0.85rem;
+}
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 720px) {
+  .dashboard-layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+  }
+
+  .sidebar nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}

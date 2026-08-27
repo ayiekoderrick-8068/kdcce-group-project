@@ -1,1 +1,292 @@
-/* TODO: styles. */
+:root {
+  --color-primary: #1f6f54;
+  --color-primary-dark: #14503c;
+  --color-secondary: #f2a71b;
+  --color-danger: #c0392b;
+  --color-bg: #f7f7f4;
+  --color-surface: #ffffff;
+  --color-text: #23291f;
+  --color-muted: #6b7166;
+  --color-border: #e1e3dc;
+  --radius: 8px;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+a {
+  color: var(--color-primary-dark);
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+}
+
+/* ---------- public site layout ---------- */
+
+.public-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.public-main {
+  flex: 1;
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem 1.25rem;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* ---------- auth pages ---------- */
+
+.auth-layout {
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-primary-dark);
+  padding: 1.5rem;
+}
+
+.auth-card {
+  background: var(--color-surface);
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  width: 100%;
+  max-width: 420px;
+}
+
+.auth-brand {
+  display: block;
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  text-decoration: none;
+  color: var(--color-primary-dark);
+}
+
+.auth-links {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+/* ---------- navbar / footer ---------- */
+
+.navbar {
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.navbar-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.25rem;
+}
+
+.navbar-brand {
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: var(--color-primary-dark);
+  text-decoration: none;
+}
+
+.navbar-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.navbar-links a {
+  text-decoration: none;
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+.navbar-links a.active,
+.navbar-links a:hover {
+  color: var(--color-primary);
+}
+
+.navbar-cta {
+  background: var(--color-primary);
+  color: #fff !important;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+}
+
+.site-footer {
+  background: var(--color-primary-dark);
+  color: #f0f0ec;
+  margin-top: 3rem;
+}
+
+.site-footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* ---------- hero / sections / pagination ---------- */
+
+.hero {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.section {
+  margin-top: 2.5rem;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+/* ---------- cards (programs / events / donations) ---------- */
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.25rem;
+}
+
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.card img {
+  width: 100%;
+  border-radius: var(--radius);
+  object-fit: cover;
+  max-height: 160px;
+}
+
+.event-card-meta,
+.donation-card-meta,
+.event-card-capacity {
+  color: var(--color-muted);
+  font-size: 0.85rem;
+}
+
+.donation-card-amount {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--color-primary-dark);
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.badge-muted {
+  background: var(--color-border);
+  color: var(--color-muted);
+}
+
+/* ---------- misc public pages ---------- */
+
+.not-found-page {
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+.page-loading {
+  padding: 3rem;
+  text-align: center;
+  color: var(--color-muted);
+}
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 720px) {
+  .navbar-toggle {
+    display: block;
+  }
+
+  .navbar-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--color-surface);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .navbar-links.is-open {
+    display: flex;
+  }
+}
